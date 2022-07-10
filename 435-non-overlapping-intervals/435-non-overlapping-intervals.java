@@ -6,14 +6,13 @@ class Solution {
             }
         });
         int count = 0;
-        int start = -1000000, end = -1000000;
+        int  end = -1000000;
         for(int[] x: intervals){
             int a = x[0];
             int b = x[1];
             if(a < end){
                 count++;
             }else{
-                start = a;
                 end = b;
             }
            
