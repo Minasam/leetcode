@@ -1,21 +1,11 @@
 class Solution {
-    public String addStrings(String n1, String n2) {
-        StringBuilder num1 = new StringBuilder(n1);
-        StringBuilder num2 = new StringBuilder(n2);
-        
-        while(num1.length() < num2.length()){
-            num1 = new StringBuilder("0").append(num1);
-        }
-        
-        while(num2.length() < num1.length()){
-            num2 = new StringBuilder("0").append(num2);
-        }
+    public String addStrings(String num1, String num2) {
         int remaining = 0;
         
         StringBuilder sb = new StringBuilder();
-        for(int i = num1.length()-1; i >= 0; i--){
-            int a = num1.charAt(i) - '0';
-            int b = num2.charAt(i) - '0';
+        for(int i = 0; i < Math.max(num1.length(), num2.length()); i++){
+            int a = i  < num1.length() ? num1.charAt(num1.length()-i-1) - '0': 0;
+            int b = i  < num2.length() ? num2.charAt(num2.length()-i-1) - '0': 0;
             int sum = a + b + remaining;
             StringBuilder temp = new StringBuilder(sum%10 +"");
             temp.append(sb);
