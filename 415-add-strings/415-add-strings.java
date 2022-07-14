@@ -7,16 +7,12 @@ class Solution {
             int a = i  < num1.length() ? num1.charAt(num1.length()-i-1) - '0': 0;
             int b = i  < num2.length() ? num2.charAt(num2.length()-i-1) - '0': 0;
             int sum = a + b + remaining;
-            StringBuilder temp = new StringBuilder(sum%10 +"");
-            temp.append(sb);
-            sb = temp;
+            sb.append(sum%10);
             remaining = sum / 10;
         }
         if(remaining > 0){
-            StringBuilder temp = new StringBuilder(remaining+"");
-            temp.append(sb);
-            sb = temp;
+           sb.append(remaining);
         }
-        return sb.toString();
+        return sb.reverse().toString();
     }
 }
