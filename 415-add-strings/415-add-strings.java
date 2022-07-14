@@ -1,11 +1,14 @@
 class Solution {
-    public String addStrings(String num1, String num2) {
+    public String addStrings(String n1, String n2) {
+        StringBuilder num1 = new StringBuilder(n1);
+        StringBuilder num2 = new StringBuilder(n2);
+        
         while(num1.length() < num2.length()){
-            num1 = '0' + num1;
+            num1 = new StringBuilder("0").append(num1);
         }
         
         while(num2.length() < num1.length()){
-            num2 = '0' + num2;
+            num2 = new StringBuilder("0").append(num2);
         }
         int remaining = 0;
         
