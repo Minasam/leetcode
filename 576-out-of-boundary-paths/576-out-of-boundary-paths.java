@@ -1,6 +1,6 @@
 class Solution {
     int height, width, moves;
-    Long [][][] dp;
+    long [][][] dp;
     public long path(int move, int i, int j){
         if(move > moves){
             return 0;
@@ -10,7 +10,7 @@ class Solution {
             return 1;
         }
         
-        if(dp[i][j][move] != null){
+        if(dp[i][j][move] != -1){
             return dp[i][j][move];
         }
         long res =0;
@@ -28,12 +28,12 @@ class Solution {
         height = m+2;
         width = n+2;
         moves = maxMove;
-        dp = new Long[height][width][moves+1];
-        // for(int i=0; i < height; i++){
-        //     for(int j = 0; j < width; j++){
-        //         Arrays.fill(dp[i][j], -1);
-        //     }
-        // }
+        dp = new long[height][width][moves+1];
+        for(int i=0; i < height; i++){
+            for(int j = 0; j < width; j++){
+                Arrays.fill(dp[i][j], -1);
+            }
+        }
         return (int) path(0, startRow+1, startColumn +1);
     }
 }
